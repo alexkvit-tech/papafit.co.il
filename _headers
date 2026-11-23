@@ -1,0 +1,58 @@
+# PAPAFIT release v4 - HTML and React Server Component payloads always revalidated
+/about
+  Cache-Control: no-store
+/about.html
+  Cache-Control: no-store
+/about.txt
+  Cache-Control: no-store
+/ru/about
+  Cache-Control: no-store
+/ru/about.html
+  Cache-Control: no-store
+/ru/about.txt
+  Cache-Control: no-store
+/images/alex-avatar.webp
+  Cache-Control: no-store
+/papafit-enhancements-v4.js
+  Cache-Control: no-store
+
+# Image refresh for PAPAFIT magazine rev 5
+/images/articles/papafit-*-2026.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/papafit-optimizations-v7.js
+  Cache-Control: no-cache
+/papafit-tracking-config-v7.js
+  Cache-Control: no-cache
+/papafit-optimizations-v7.css
+  Cache-Control: no-cache
+/papafit-release-v7.txt
+  Cache-Control: no-cache
+
+
+/papafit-guide.css
+  Cache-Control: no-cache
+/weight-loss-guide
+  Cache-Control: no-cache
+/weight-loss-guide.html
+  Cache-Control: no-cache
+
+/papafit-optimizations-v11.js
+  Cache-Control: no-cache
+/papafit-optimizations-v11.css
+  Cache-Control: no-cache
+/images/articles/papafit-*-v11.webp
+  Cache-Control: public, max-age=31536000, immutable
+/images/guide-share-v11.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+# PAPAFIT v14 - Russian parity release
+/ru/weight-loss-guide
+  Cache-Control: no-cache
+/ru/weight-loss-guide.html
+  Cache-Control: no-cache
+/papafit-guide-navigation.js
+  Cache-Control: no-cache
+
+/llms.txt
+  Cache-Control: no-cache

@@ -1,0 +1,38 @@
+# PAPAFIT
+
+> PAPAFIT is a personal nutrition and habit-building coaching service for busy people and parents in Israel, founded by Alex Kvitnitsky (אלכס קביטניצקי). Coaching runs mainly online, with optional in-person consultations in the Shoham area and central Israel. The site is in Hebrew, with a full Russian version under /ru.
+
+About the founder: Alex Kvitnitsky is a nutrition and habit-building coach, a former professional basketball player and a graduate of the LBS Academy nutrition course. He guides people through weight loss and body-composition change. He is not a fitness trainer.
+
+Approach: a flexible eating framework with no rigid menu and no extreme diets. It includes calorie awareness, protein at every meal, weekly progress tracking by trend rather than single weigh-ins, strength training and sleep, and planning for evenings, weekends and family meals.
+
+Contact: WhatsApp / phone +972-52-642-5670, email papafit4u@gmail.com
+
+## Main pages
+- [Home (Hebrew)](https://papafit.co.il/): overview, method, client results, prices and FAQ
+- [Programs and prices](https://papafit.co.il/services): single consultation (600 ₪), personal 4 months (1,800 ₪), personal 6 months (2,400 ₪), couples and groups
+- [About Alex Kvitnitsky](https://papafit.co.il/about): background, approach and values
+- [Coaching in Shoham and central Israel](https://papafit.co.il/nutrition-coaching-shoham)
+- [PAPAFIT app](https://papafit.co.il/app): nutrition, habits, workouts and progress tracking for clients
+- [Lectures for organizations and sports clubs](https://papafit.co.il/lectures)
+- [Contact](https://papafit.co.il/contact)
+
+## Guide
+- [How to really lose weight when you have work and kids (9 principles)](https://papafit.co.il/weight-loss-guide)
+
+## Articles (Hebrew)
+- [How much protein per day to lose weight and keep muscle](https://papafit.co.il/articles/how-much-protein-per-day)
+- [Do carbs after 8 pm make you gain weight?](https://papafit.co.il/articles/carbs-after-8pm)
+- [Back to routine after the summer holidays](https://papafit.co.il/articles/back-to-routine-after-summer)
+- [Why the scale isn't moving when you eat healthy](https://papafit.co.il/articles/why-weight-is-not-going-down)
+- [Online nutrition and habit coaching for busy people](https://papafit.co.il/articles/online-nutrition-coaching-for-busy-people)
+- [Losing weight without an extreme diet](https://papafit.co.il/articles/lose-weight-without-extreme-diet)
+- [Building habits for long-term weight loss](https://papafit.co.il/articles/habits-for-long-term-weight-loss)
+- [Losing weight without counting every calorie](https://papafit.co.il/articles/weight-loss-without-calorie-counting)
+
+## Russian version
+- [Главная](https://papafit.co.il/ru)
+- [Программы и цены](https://papafit.co.il/ru/services)
+- [Обо мне](https://papafit.co.il/ru/about)
+- [Статьи](https://papafit.co.il/ru/articles)
+- [Руководство по снижению веса](https://papafit.co.il/ru/weight-loss-guide)

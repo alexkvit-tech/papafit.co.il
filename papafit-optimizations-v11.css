@@ -1,0 +1,41 @@
+/* Scoped PAPAFIT stage 1 enhancements: styles use the current brand tokens. */
+.pf-v7-micro{font-size:13px;line-height:1.55;color:#646464;margin-top:10px;max-width:36rem}.pf-v7-micro--dark{color:#c9c9c9}.pf-v7-micro::before{content:'✓';color:#e97116;font-weight:800;margin-inline-end:7px}.pf-v7-cred{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:22px;max-width:800px}.pf-v7-cred>div{padding:12px 14px;border:1px solid #ebdfd5;border-radius:14px;background:#fffdfa;line-height:1.35}.pf-v7-cred strong{display:block;color:#bb5415;font-size:14px;font-weight:800}.pf-v7-cred span{display:block;margin-top:5px;font-size:12px;color:#666}.pf-v7-subprice{display:block;font-size:14px;color:#656565;margin-top:6px;margin-bottom:4px}.pf-v7-consent{position:fixed;z-index:20000;right:16px;left:16px;bottom:16px;margin-inline:auto;max-width:650px;background:#fff;color:#161616;box-shadow:0 16px 50px #0003;border-radius:18px;border:1px solid #e2e0dd;padding:17px 19px;direction:rtl}.pf-v7-consent[dir=ltr]{direction:ltr}.pf-v7-consent p{margin:7px 0 12px;font-size:14px;line-height:1.55;color:#555}.pf-v7-consent a{color:#a84c0e;text-decoration:underline}.pf-v7-consent-actions{display:flex;flex-wrap:wrap;gap:10px}.pf-v7-consent button{font:inherit;cursor:pointer;border:1px solid #ddd;padding:10px 18px;border-radius:999px;font-weight:700;background:#fff;color:#161616}.pf-v7-consent button:first-child{background:#ff8126;border-color:#ff8126}.pf-v7-consent-title{font-size:16px;font-weight:800}.pf-v7-guide-hint{font-size:14px;color:#767676;margin-top:8px}.pf-v7-release{display:none}@media(max-width:650px){.pf-v7-cred{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:16px;gap:8px}.pf-v7-cred>div{padding:12px 10px}.pf-v7-cred strong{font-size:13px}.pf-v7-consent{bottom:10px;right:9px;left:9px;padding:15px}.pf-v7-consent-actions button{flex:1}}
+
+/* PAPAFIT full guide feature for main homepage. */
+.pf-guide-promo{background:#1f2023;color:#fff;padding:clamp(40px,7vw,78px) 20px;direction:rtl}
+.pf-guide-promo-inner{max-width:1140px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:38px}
+.pf-guide-promo-inner>div:first-child{max-width:690px}
+.pf-guide-promo-eyebrow{display:block;color:#ffb584;font-size:13px;font-weight:800;letter-spacing:.02em;margin-bottom:12px}
+.pf-guide-promo h2{font-size:clamp(27px,4vw,43px);font-weight:900;line-height:1.25;max-width:18ch;margin:0 0 15px;color:#fff}
+.pf-guide-promo p{font-size:clamp(15px,1.8vw,18px);line-height:1.75;max-width:47ch;color:#e1dedb;margin:0 0 23px}
+.pf-guide-promo-button{display:inline-flex;align-items:center;min-height:49px;border-radius:10px;background:#ff842d;color:#151515!important;text-decoration:none!important;padding:10px 23px;font-weight:900;font-size:16px;box-shadow:0 8px 25px #0002;transition:background .15s ease}
+.pf-guide-promo-button:hover,.pf-guide-promo-button:focus-visible{background:#ffad73}
+.pf-guide-promo-aside{flex-shrink:0;min-width:190px;border:1px solid #5d4d44;background:#352b28;border-radius:20px;text-align:center;padding:22px 24px}
+.pf-guide-promo-aside span{display:block;font-size:78px;font-weight:900;line-height:1;color:#ff9a55}
+.pf-guide-promo-aside small{display:block;color:#f3ece7;font-size:15px;line-height:1.5;margin-top:11px}
+@media(max-width:650px){.pf-guide-promo-inner{display:block}.pf-guide-promo-aside{display:none}.pf-guide-promo{padding:46px 18px}}
+
+/* TasteSkill-inspired restrained editorial refinements — do not override main brand system */
+.pf-guide-promo{background:#f7f7f5!important;color:#171717!important;border-block:1px solid #e4e2df;padding:clamp(30px,5vw,54px) 20px!important}
+.pf-guide-promo-inner{max-width:1140px;margin:auto;display:block!important;}
+.pf-guide-promo-inner>div:first-child{max-width:780px!important}
+.pf-guide-promo-eyebrow{color:#c85b13!important;font-size:12px!important;letter-spacing:0!important}
+.pf-guide-promo h2{color:#171717!important;font-size:clamp(23px,2.7vw,34px)!important;max-width:none!important;margin-bottom:10px!important}
+.pf-guide-promo p{color:#4b4b4b!important;font-size:16px!important;line-height:1.7!important;margin-bottom:18px!important;max-width:58ch!important}
+.pf-guide-promo-button{background:#fa761b!important;color:#171717!important;padding:9px 21px!important;min-height:44px!important;box-shadow:none!important;transform:none;transition:background .18s ease,transform .18s ease!important}
+.pf-guide-promo-button:hover,.pf-guide-promo-button:focus-visible{background:#ff9d51!important;transform:translateY(-2px)!important}
+.pf-guide-promo-button:focus-visible,#pf-guide-copy-link:focus-visible{outline:3px solid #ff9d51;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.pf-guide-promo-button{transition:none!important}}
+
+
+/* PAPAFIT v12 review fixes (2026-11-15) */
+/* 1. App mockup tiles: labels were white on white */
+.rounded-2xl.bg-surface.text-sm.font-semibold.ring-line>p{color:var(--color-ink,#141414)}
+/* 2. Keep footer links clear of the floating WhatsApp button */
+footer{padding-bottom:96px}
+/* 3. Nutrition course credential badge */
+.pf-cert-badge{display:inline-flex;align-items:center;gap:6px;margin:10px 0 4px;padding:6px 14px;border-radius:999px;background:#fff1e6;border:1px solid #f6c9a4;color:#a84c0e;font-size:14px;font-weight:800;line-height:1.4}
+.pf-cert-badge::before{content:'✓';font-weight:900}
+/* 4. Pricing cards: clearer edges on light background */
+article.bg-surface[class*="rounded-[1.75rem]"]{box-shadow:0 0 0 1.5px #dcc7b4,0 18px 40px -18px rgb(20 20 20/.28)!important;transition:box-shadow .2s ease,transform .2s ease}
+article.bg-surface[class*="rounded-[1.75rem]"]:hover{box-shadow:0 0 0 1.5px #e9a372,0 22px 48px -18px rgb(20 20 20/.32)!important;transform:translateY(-2px)}

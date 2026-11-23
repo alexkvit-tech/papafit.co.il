@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://papafit.co.il/sitemap.xml

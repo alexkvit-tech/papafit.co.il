@@ -1,0 +1,1 @@
+PAPAFIT v12 | review fixes: app mockup labels visible, footer clear of WhatsApp button, image alt text, before/after images (Lihi, Yuli) fill the card, simpler monthly price line, trust row reordered, email papafit4u@gmail.com, LBS Academy nutrition-course credential, clearer pricing card borders | 2026-11-15

@@ -1,0 +1,61 @@
+{
+  "version": "PAPAFIT 11",
+  "date": "2026-11-13",
+  "base_archive": "PAPAFIT-Cloudflare-Production-v10-Guide-GTM.zip",
+  "site_kind": "service",
+  "GTM_ID": "GTM-MM6R74CT",
+  "GA4_ID": "G-23EJK7Z2X9",
+  "guide": "https://papafit.co.il/weight-loss-guide",
+  "guide_source": "PAPAFIT v10 nine-principle guide; Claude artifact access required authentication, so the original artifact wording cannot be independently compared",
+  "pictures": {
+    "protein": {
+      "file": "images/articles/papafit-protein-v11.webp",
+      "alt": "שולחן עם מקורות חלבון: עוף, סלמון, ביצים, יוגורט וקטניות",
+      "source": "a_high_resolution_well_lit_close_up_tabletop_foo.png"
+    },
+    "carbs-evening": {
+      "file": "images/articles/papafit-carbs-evening-v11.webp",
+      "alt": "שעון אנלוגי שמראה שמונה בערב בבית חמים",
+      "source": "a_realistic_warmly_lit_interior_close_up_scene_a.png"
+    },
+    "back-to-routine": {
+      "file": "images/articles/papafit-back-to-routine-v11.webp",
+      "alt": "תיקי בית ספר וקופסת אוכל בכניסה לבית ספר בשעות הבוקר",
+      "source": "a_bright_realistic_outdoor_school_entrance_scene.png"
+    },
+    "weight-plateau": {
+      "file": "images/articles/papafit-weight-plateau-v11.webp",
+      "alt": "ארוחות מזינות ומאוזנות על שולחן ביתי",
+      "source": "a_bright_high_resolution_realistic_food_still_li.png"
+    },
+    "online-coaching": {
+      "file": "images/articles/papafit-online-coaching-v11.webp",
+      "alt": "קופסאות להכנת ארוחות מזינות בשגרה עמוסה",
+      "source": "a_bright_high_detail_lifestyle_kitchen_scene_of_h.png"
+    },
+    "no-extreme-diet": {
+      "file": "images/articles/papafit-no-extreme-diet-v11.webp",
+      "alt": "שולחן עם ארוחת בוקר מגוונת ומאוזנת ללא הגבלות קיצוניות",
+      "source": "a_bright_high_resolution_realistic_food_still_li.png"
+    },
+    "habits": {
+      "file": "images/articles/papafit-habits-v11.webp",
+      "alt": "שגרת ערב רגועה עם תה וספר ליד המיטה",
+      "source": "a_cozy_warm_photorealistic_bedroom_bedside_still.png"
+    },
+    "no-calorie-counting": {
+      "file": "images/articles/papafit-no-calorie-counting-v11.webp",
+      "alt": "מנות אוכל ביתי עם ירקות, דגנים וחלבון בלי ספירת קלוריות",
+      "source": "a_bright_high_detail_lifestyle_kitchen_scene_of_h.png"
+    }
+  },
+  "design": "Original PAPAFIT design preserved; editorial guide promo reduced; no generated website mockups used",
+  "taste_skill": "Style principles reviewed from upstream TasteSkill v2.5.1 SKILL.md; full npm install unavailable due network restrictions",
+  "limitations": [
+    "Not deployed",
+    "Meta Pixel still requires verified ID",
+    "GTM tags must be published in Google Tag Manager",
+    "No gated email collection or storage backend",
+    "Current source includes older site build; compare before overwriting live"
+  ]
+}
