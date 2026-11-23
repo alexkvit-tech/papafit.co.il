@@ -30,9 +30,10 @@
 .calc-stat span { color: var(--guide-muted); font-size: .88rem; font-weight: 700; }
 .calc-stat strong { font-size: clamp(1.7rem, 5vw, 2.4rem); font-weight: 900; line-height: 1.1; letter-spacing: -.02em; }
 .calc-stat small { color: var(--guide-muted); font-size: .82rem; }
-.calc-stat.is-main { grid-column: 1 / -1; background: var(--guide-ink); color: white; border-color: var(--guide-ink); }
-.calc-stat.is-main span, .calc-stat.is-main small { color: #e0d6cd; }
-.calc-stat.is-main strong { color: var(--guide-orange); font-size: clamp(2.6rem, 9vw, 3.8rem); }
+.calc-stat.is-main { grid-column: 1 / -1; position: relative; overflow: hidden; background: linear-gradient(155deg, #ffffff 0%, #fff4ea 100%); border-color: #f2d4ba; box-shadow: 0 26px 50px -34px rgb(184 70 10 / 45%); padding: 1.2rem 1.3rem; }
+.calc-stat.is-main::before { content: ""; position: absolute; inset-block-start: 0; inset-inline-start: 0; width: 5px; height: 100%; background: var(--guide-orange); }
+.calc-stat.is-main span { color: var(--guide-accent); }
+.calc-stat.is-main strong { color: var(--guide-ink); font-size: clamp(2.6rem, 9vw, 3.8rem); }
 .calc-warn { background: #fff7e0; border: 1px solid #f1d58a; border-radius: 14px; padding: .8rem 1rem; }
 .calc-block { background: white; border: 1px solid var(--guide-line); border-radius: 22px; padding: clamp(1rem, 3.5vw, 1.8rem); }
 .calc-block h3 { font-size: clamp(1.2rem, 3vw, 1.5rem); margin-bottom: .5rem; }

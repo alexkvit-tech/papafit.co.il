@@ -53,6 +53,7 @@ article.bg-surface[class*="rounded-[1.75rem]"]:hover{box-shadow:0 0 0 1.5px #e9a
 .pf-quiz-promo-button:focus-visible { outline: 3px solid #b8460a; outline-offset: 3px; }
 .pf-quiz-promo small { color: #6b625b; font-size: 13px; }
 .pf-quiz-card { margin: 2.5rem 0 0; padding: 1.4rem; border-radius: 1.5rem; background: #fff4ea; border: 1px solid #f3d6bd; direction: rtl; }
+.pf-quiz-promo[dir=ltr], .pf-quiz-card[dir=ltr] { direction: ltr; }
 .pf-quiz-card h2 { margin: 0 0 .4rem; font-size: 1.4rem; font-weight: 900; }
 .pf-quiz-card p { margin: 0 0 1rem; color: #4b4b4b; }
 @media (max-width: 650px) { .pf-quiz-promo-cta { width: 100%; } .pf-quiz-promo-button { width: 100%; } }

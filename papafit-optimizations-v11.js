@@ -171,33 +171,42 @@
  }
 
  const hydrated=el=>!!el&&Object.keys(el).some(k=>k.startsWith('__reactFiber'));
- const QUIZ_PROMO='<div class="pf-quiz-promo-inner"><div><span class="pf-quiz-promo-eyebrow">PAPAFIT · שאלון אישי חינמי</span><h2>למה אתה לא מצליח לרדת במשקל?</h2><p>15 שאלות קצרות, 3 דקות, ובסוף הסיבות העיקריות שעוצרות דווקא אותך, עם הסבר ומה לעשות כבר השבוע. בלי הרשמה ובלי מייל.</p></div><div class="pf-quiz-promo-cta"><a href="/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_promo">לגלות מה עוצר אותי</a><small>התוצאות מופיעות מיד על המסך · או <a href="/calorie-calculator">מחשבון קלוריות אישי</a></small></div></div>';
+ const QUIZ_TXT={
+  he:{promo:'<div class="pf-quiz-promo-inner"><div><span class="pf-quiz-promo-eyebrow">PAPAFIT · שאלון אישי חינמי</span><h2>למה אתה לא מצליח לרדת במשקל?</h2><p>15 שאלות קצרות, 3 דקות, ובסוף הסיבות העיקריות שעוצרות דווקא אותך, עם הסבר ומה לעשות כבר השבוע. בלי הרשמה ובלי מייל.</p></div><div class="pf-quiz-promo-cta"><a href="/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_promo">לגלות מה עוצר אותי</a><small>התוצאות מופיעות מיד על המסך · או <a href="/calorie-calculator">מחשבון קלוריות אישי</a></small></div></div>',
+   label:'שאלון: למה אתה לא מצליח לרדת במשקל',quiz:'/weight-loss-quiz',calc:'/calorie-calculator',list:/^\/articles(?:\.html|\/)?$/,art:/^\/articles\/[^/]+/,faq:/שאלות נפוצות/,
+   link:'שאלון של 3 דקות: למה אתה לא מצליח לרדת במשקל?',calcLink:'מחשבון קלוריות אישי',
+   card:'<h2>רוצה לדעת מה עוצר דווקא אותך?</h2><p>שאלון קצר של 3 דקות שמראה את הסיבות העיקריות שלך ומה לעשות איתן כבר השבוע.</p><a href="/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_article">למילוי השאלון</a>'},
+  ru:{promo:'<div class="pf-quiz-promo-inner"><div><span class="pf-quiz-promo-eyebrow">PAPAFIT · Бесплатный персональный тест</span><h2>Почему у вас не получается похудеть?</h2><p>15 коротких вопросов, 3 минуты, и в конце главные причины, которые останавливают именно вас, с объяснением и тем, что делать уже на этой неделе. Без регистрации и e-mail.</p></div><div class="pf-quiz-promo-cta"><a href="/ru/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_promo">Узнать, что мне мешает</a><small>Результат сразу на экране · или <a href="/ru/calorie-calculator">калькулятор калорий</a></small></div></div>',
+   label:'Тест: почему у вас не получается похудеть',quiz:'/ru/weight-loss-quiz',calc:'/ru/calorie-calculator',list:/^\/ru\/articles(?:\.html|\/)?$/,art:/^\/ru\/articles\/[^/]+/,faq:/Частые вопросы/,
+   link:'Тест на 3 минуты: почему у вас не получается похудеть?',calcLink:'Калькулятор калорий',
+   card:'<h2>Хотите узнать, что мешает именно вам?</h2><p>Короткий тест на 3 минуты покажет ваши главные причины и что с ними делать уже на этой неделе.</p><a href="/ru/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_article">Пройти тест</a>'}
+ };
  function addQuizLink(){
-  if(lang()==='ru')return;
+  const ru=lang()==='ru';const T=QUIZ_TXT[ru?'ru':'he'];
+  const later=()=>{if(!addQuizLink.t)addQuizLink.t=setTimeout(()=>{addQuizLink.t=0;addQuizLink()},400);};
   if(isHome()){
     if(document.querySelector('[data-pf-quiz-promo]'))return;
     const problem=document.getElementById('problem-title')?.closest('section');
     if(!problem)return;
-    if(!hydrated(problem)){if(!addQuizLink.t)addQuizLink.t=setTimeout(()=>{addQuizLink.t=0;addQuizLink()},400);return;}
-    const promo=document.createElement('section');promo.className='pf-quiz-promo';promo.dataset.pfQuizPromo='1';promo.setAttribute('aria-label','שאלון: למה אתה לא מצליח לרדת במשקל');
-    promo.innerHTML=QUIZ_PROMO;problem.insertAdjacentElement('afterend',promo);
-  }else if(/^\/articles(?:\.html|\/)?$/.test(location.pathname)){
+    if(!hydrated(problem))return later();
+    const promo=document.createElement('section');promo.className='pf-quiz-promo';promo.dataset.pfQuizPromo='1';promo.dir=ru?'ltr':'rtl';promo.setAttribute('aria-label',T.label);
+    promo.innerHTML=T.promo;problem.insertAdjacentElement('afterend',promo);
+  }else if(T.list.test(location.pathname)){
     const h1=document.querySelector('main h1');
     if(!h1||document.querySelector('[data-pf-quiz-link]'))return;
-    if(!hydrated(h1)){if(!addQuizLink.t)addQuizLink.t=setTimeout(()=>{addQuizLink.t=0;addQuizLink()},400);return;}
-    const note=document.createElement('p');note.dataset.pfQuizLink='1';const a=document.createElement('a');a.href='/weight-loss-quiz';a.textContent='שאלון של 3 דקות: למה אתה לא מצליח לרדת במשקל?';const c=document.createElement('a');c.href='/calorie-calculator';c.textContent='מחשבון קלוריות אישי';note.append(a,' · ',c);
+    if(!hydrated(h1))return later();
+    const note=document.createElement('p');note.dataset.pfQuizLink='1';const a=document.createElement('a');a.href=T.quiz;a.textContent=T.link;const c=document.createElement('a');c.href=T.calc;c.textContent=T.calcLink;note.append(a,' · ',c);
     (document.querySelector('[data-pf-guide-link]')||h1).insertAdjacentElement('afterend',note);
-  }else if(/^\/articles\/[^/]+/.test(location.pathname)){
+  }else if(T.art.test(location.pathname)){
     const prose=document.querySelector('main .prose-pf');
     if(!prose||document.querySelector('[data-pf-quiz-card]'))return;
-    if(!hydrated(prose)){if(!addQuizLink.t)addQuizLink.t=setTimeout(()=>{addQuizLink.t=0;addQuizLink()},400);return;}
-    const card=document.createElement('aside');card.className='pf-quiz-card';card.dataset.pfQuizCard='1';
-    card.innerHTML='<h2>רוצה לדעת מה עוצר דווקא אותך?</h2><p>שאלון קצר של 3 דקות שמראה את הסיבות העיקריות שלך ומה לעשות איתן כבר השבוע.</p><a href="/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_article">למילוי השאלון</a>';
-    const faq=[...prose.querySelectorAll('h2')].find(h=>/שאלות נפוצות/.test(h.textContent));
+    if(!hydrated(prose))return later();
+    const card=document.createElement('aside');card.className='pf-quiz-card';card.dataset.pfQuizCard='1';card.dir=ru?'ltr':'rtl';
+    card.innerHTML=T.card;
+    const faq=[...prose.querySelectorAll('h2')].find(h=>T.faq.test(h.textContent));
     faq?faq.insertAdjacentElement('beforebegin',card):prose.insertAdjacentElement('afterend',card);
   }
  }
-
  function addNavTab(){
   const ru=lang()==='ru';const calc=ru?'/ru/calorie-calculator':'/calorie-calculator';const label=ru?'Калькулятор калорий':'מחשבון קלוריות';
   const isReact=!!document.querySelector('script[src*="/_next/"]');

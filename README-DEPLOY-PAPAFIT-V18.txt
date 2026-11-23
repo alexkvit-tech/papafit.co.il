@@ -27,3 +27,10 @@ Calculator fixes (review round 1):
 - Time to goal = plain arithmetic at the starting pace, with a note that it slows down
 - Russian version: /ru/calorie-calculator, "Калькулятор калорий" tab in the Russian menu,
   HE/RU switch buttons link between the two calculator pages
+
+Round 2:
+- Russian quiz: /ru/weight-loss-quiz (full translation, same scoring), banner on /ru,
+  card in every Russian article, link on /ru/articles and inside /ru/weight-loss-guide
+- HE/RU switch buttons link between the two quiz pages
+- Design: the black boxes (quiz preview, quiz/calculator CTA, calculator main number)
+  replaced with light warm cards (soft orange gradient, thin border, soft shadow)

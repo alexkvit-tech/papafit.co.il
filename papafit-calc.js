@@ -299,7 +299,8 @@
         <ul class="calc-tips">${L.plate(r5(pLo / 4), r5(pHi / 3.5)).map(x => `<li>${x}</li>`).join('')}</ul>
       </section>
       ${low ? '' : `<section class="calc-block calc-truth"><h3>${L.truthTitle}</h3>${L.truth.map(p => `<p>${esc(p)}</p>`).join('')}</section>`}
-      <section class="callout calc-cta" aria-labelledby="calc-cta-title">
+      <section class="pf-cta-card calc-cta" aria-labelledby="calc-cta-title">
+        <p class="pf-cta-eyebrow">PAPAFIT</p>
         <h2 id="calc-cta-title">${esc(L.ctaTitle)}</h2>
         <p>${esc(L.ctaBody)}</p>
         <ul>${L.ctaList.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
