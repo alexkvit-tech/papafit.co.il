@@ -61,3 +61,5 @@ article.bg-surface[class*="rounded-[1.75rem]"]:hover{box-shadow:0 0 0 1.5px #e9a
 /* keep the 7-item desktop menu on one line */
 header nav a{white-space:nowrap}
 @media (min-width:1024px) and (max-width:1219px){header nav[aria-label] ul{gap:0}header nav[aria-label] ul a{padding-inline:.45rem!important;font-size:.88rem!important}header a[href*="wa.me"]{white-space:nowrap}}
+/* Russian labels are longer: keep the 7-item menu inside the screen */
+@media (min-width:1024px) and (max-width:1439px){html[lang=ru] header nav[aria-label] ul a{padding-inline:.4rem!important;font-size:.85rem!important}html[lang=ru] header a.press[href*="wa.me"]{font-size:0;gap:0;padding-inline:.75rem}html[lang=ru] header a.press[href*="wa.me"] svg{width:20px;height:20px}}

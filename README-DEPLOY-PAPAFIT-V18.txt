@@ -18,3 +18,12 @@ Tracking (GTM, only after cookie consent): papafit_quiz_start, papafit_quiz_comp
 papafit_calculator_complete; WhatsApp clicks arrive as papafit_generate_lead with
 button_location quiz_result / calc_result / quiz_share_self / calc_share_self.
 No data is stored on a server; answers stay in the visitor's browser.
+
+Calculator fixes (review round 1):
+- Sex field must be chosen: inline red message + summary of all invalid fields
+- Small/low-activity people (maintenance less than 200 kcal above the safe minimum)
+  get a dedicated message (more movement, strength, talk to Alex) instead of a "lose" number
+- Old results are hidden whenever the form has an error
+- Time to goal = plain arithmetic at the starting pace, with a note that it slows down
+- Russian version: /ru/calorie-calculator, "Калькулятор калорий" tab in the Russian menu,
+  HE/RU switch buttons link between the two calculator pages

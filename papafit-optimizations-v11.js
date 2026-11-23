@@ -199,17 +199,17 @@
  }
 
  function addNavTab(){
-  if(lang()==='ru')return;
+  const ru=lang()==='ru';const calc=ru?'/ru/calorie-calculator':'/calorie-calculator';const label=ru?'Калькулятор калорий':'מחשבון קלוריות';
   const isReact=!!document.querySelector('script[src*="/_next/"]');
   for(const ul of document.querySelectorAll('header nav ul, #mobile-menu ul')){
     if(ul.querySelector('[data-pf-nav-calc]'))continue;
-    const ref=[...ul.querySelectorAll('a')].find(a=>/\/articles$/.test(a.getAttribute('href')||''));
+    const ref=[...ul.querySelectorAll('a')].find(a=>(ru?/^\/ru\/articles$/:/^\/articles$/).test(a.getAttribute('href')||''));
     if(!ref)continue;
     if(isReact&&!hydrated(ul)){if(!addNavTab.t)addNavTab.t=setTimeout(()=>{addNavTab.t=0;addNavTab()},400);continue;}
     const li=document.createElement('li');li.dataset.pfNavCalc='1';
-    const a=ref.cloneNode(true);a.href='/calorie-calculator';a.removeAttribute('aria-current');
-    const tn=[...a.childNodes].find(n=>n.nodeType===3&&n.textContent.trim());if(tn)tn.textContent='מחשבון קלוריות';else a.prepend('מחשבון קלוריות');
-    if(/^\/calorie-calculator/.test(location.pathname))a.setAttribute('aria-current','page');
+    const a=ref.cloneNode(true);a.href=calc;a.removeAttribute('aria-current');
+    const tn=[...a.childNodes].find(n=>n.nodeType===3&&n.textContent.trim());if(tn)tn.textContent=label;else a.prepend(label);
+    if(location.pathname.replace(/\.html$|\/$/,'')===calc)a.setAttribute('aria-current','page');
     li.append(a);ref.closest('li').insertAdjacentElement('afterend',li);
   }
  }

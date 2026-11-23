@@ -55,3 +55,10 @@
 @media (min-width: 760px) { .calc-big { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 420px) { .calc-choices.is-3 { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { #calc-result { animation: none; } }
+.calc-stat-wide { grid-column: 1 / -1; }
+.calc-note { color: var(--guide-muted); font-size: .9rem; margin-top: -.6rem; }
+.calc-error ul { margin: .35rem 0 0; padding-inline-start: 1.2rem; font-weight: 600; }
+fieldset.is-invalid .calc-choice span { border-color: #c0392b; background: #fff5f3; }
+fieldset.is-invalid legend { color: #a12a1c; }
+fieldset.is-invalid legend::after { content: " *"; }
+.calc-inline-err { color: #a12a1c; font-weight: 700; font-size: .9rem; margin-top: .45rem; }
