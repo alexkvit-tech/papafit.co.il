@@ -56,3 +56,13 @@
 
 /llms.txt
   Cache-Control: no-cache
+
+# PAPAFIT v18 - weight-loss quiz
+/weight-loss-quiz
+  Cache-Control: no-cache
+/weight-loss-quiz.html
+  Cache-Control: no-cache
+/papafit-quiz.js
+  Cache-Control: no-cache
+/papafit-quiz.css
+  Cache-Control: no-cache

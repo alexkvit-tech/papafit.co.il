@@ -1,7 +1,7 @@
 /* PAPAFIT v7 stage 1 — copy, credibility, pricing, accessibility and consent-based analytics */
 (()=>{
  'use strict';
- const BUILD='PAPAFIT-v17-dates-2026-11-18';
+ const BUILD='PAPAFIT-v18-quiz-2026-11-23';
  const CONFIG=window.PAPAFIT_TRACKING_CONFIG||{};
  const isRu=()=>/^\/ru(?:\/|$)/.test(location.pathname);
  const isHome=()=>/^(\/|\/ru|\/ru\/|\/index\.html)$/.test(location.pathname);
@@ -169,6 +169,35 @@
     note.append(link);heading.insertAdjacentElement('afterend',note);
   }
  }
+
+ const hydrated=el=>!!el&&Object.keys(el).some(k=>k.startsWith('__reactFiber'));
+ const QUIZ_PROMO='<div class="pf-quiz-promo-inner"><div><span class="pf-quiz-promo-eyebrow">PAPAFIT · שאלון אישי חינמי</span><h2>למה אתה לא מצליח לרדת במשקל?</h2><p>15 שאלות קצרות, 3 דקות, ובסוף הסיבות העיקריות שעוצרות דווקא אותך, עם הסבר ומה לעשות כבר השבוע. בלי הרשמה ובלי מייל.</p></div><div class="pf-quiz-promo-cta"><a href="/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_promo">לגלות מה עוצר אותי</a><small>התוצאות מופיעות מיד על המסך</small></div></div>';
+ function addQuizLink(){
+  if(lang()==='ru')return;
+  if(isHome()){
+    if(document.querySelector('[data-pf-quiz-promo]'))return;
+    const problem=document.getElementById('problem-title')?.closest('section');
+    if(!problem)return;
+    if(!hydrated(problem)){if(!addQuizLink.t)addQuizLink.t=setTimeout(()=>{addQuizLink.t=0;addQuizLink()},400);return;}
+    const promo=document.createElement('section');promo.className='pf-quiz-promo';promo.dataset.pfQuizPromo='1';promo.setAttribute('aria-label','שאלון: למה אתה לא מצליח לרדת במשקל');
+    promo.innerHTML=QUIZ_PROMO;problem.insertAdjacentElement('afterend',promo);
+  }else if(/^\/articles(?:\.html|\/)?$/.test(location.pathname)){
+    const h1=document.querySelector('main h1');
+    if(!h1||document.querySelector('[data-pf-quiz-link]'))return;
+    if(!hydrated(h1)){if(!addQuizLink.t)addQuizLink.t=setTimeout(()=>{addQuizLink.t=0;addQuizLink()},400);return;}
+    const note=document.createElement('p');note.dataset.pfQuizLink='1';const a=document.createElement('a');a.href='/weight-loss-quiz';a.textContent='שאלון של 3 דקות: למה אתה לא מצליח לרדת במשקל?';note.append(a);
+    (document.querySelector('[data-pf-guide-link]')||h1).insertAdjacentElement('afterend',note);
+  }else if(/^\/articles\/[^/]+/.test(location.pathname)){
+    const prose=document.querySelector('main .prose-pf');
+    if(!prose||document.querySelector('[data-pf-quiz-card]'))return;
+    if(!hydrated(prose)){if(!addQuizLink.t)addQuizLink.t=setTimeout(()=>{addQuizLink.t=0;addQuizLink()},400);return;}
+    const card=document.createElement('aside');card.className='pf-quiz-card';card.dataset.pfQuizCard='1';
+    card.innerHTML='<h2>רוצה לדעת מה עוצר דווקא אותך?</h2><p>שאלון קצר של 3 דקות שמראה את הסיבות העיקריות שלך ומה לעשות איתן כבר השבוע.</p><a href="/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_article">למילוי השאלון</a>';
+    const faq=[...prose.querySelectorAll('h2')].find(h=>/שאלות נפוצות/.test(h.textContent));
+    faq?faq.insertAdjacentElement('beforebegin',card):prose.insertAdjacentElement('afterend',card);
+  }
+ }
+ window.papafitTrack=(kind,detail)=>emit(kind,{...(detail||{}),page_path:location.pathname});
  function articleDate(){
   if(!/^(?:\/ru)?\/articles\/[^/]+/.test(location.pathname))return;
   const h1=document.querySelector('main h1');
@@ -246,7 +275,7 @@
  function apply(){
   const wa=[...document.querySelectorAll('a[href]')].filter(a=>/^(https?:\/\/)?(?:wa\.me|api\.whatsapp\.com)\//.test(a.getAttribute('href')||''));
   for(const a of wa){a.target='_blank';a.rel='noopener noreferrer';if(!a.dataset.cta)a.dataset.cta=position(a)}
-  addMicro();addCredibility();addCertBadge();resultsSummary();monthlyPrices();aboutTerms();repairArticleImages();fillImageAlts();addGuideLink();articleDate();shareGuide();banner();
+  addMicro();addCredibility();addCertBadge();resultsSummary();monthlyPrices();aboutTerms();repairArticleImages();fillImageAlts();addGuideLink();addQuizLink();articleDate();shareGuide();banner();
  }
  function schedule(){if(nextPatch)return;nextPatch=true;requestAnimationFrame(()=>{nextPatch=false;apply()})}
  const observer=new MutationObserver(records=>{if(records.some(r=>r.addedNodes.length||r.removedNodes.length))schedule()});

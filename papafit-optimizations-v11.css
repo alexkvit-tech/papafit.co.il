@@ -39,3 +39,21 @@ footer{padding-bottom:96px}
 /* 4. Pricing cards: clearer edges on light background */
 article.bg-surface[class*="rounded-[1.75rem]"]{box-shadow:0 0 0 1.5px #dcc7b4,0 18px 40px -18px rgb(20 20 20/.28)!important;transition:box-shadow .2s ease,transform .2s ease}
 article.bg-surface[class*="rounded-[1.75rem]"]:hover{box-shadow:0 0 0 1.5px #e9a372,0 22px 48px -18px rgb(20 20 20/.32)!important;transform:translateY(-2px)}
+
+/* PAPAFIT v18 quiz promo */
+/* Home/article promo (injected by papafit-optimizations-v11.js) */
+.pf-quiz-promo { direction: rtl; padding: clamp(28px, 5vw, 56px) 20px; background: #fff4ea; border-block: 1px solid #f3d6bd; }
+.pf-quiz-promo-inner { max-width: 1140px; margin: auto; display: flex; gap: 28px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.pf-quiz-promo-eyebrow { display: block; color: #b8460a; font-size: 13px; font-weight: 800; margin-bottom: 8px; }
+.pf-quiz-promo h2 { font-size: clamp(24px, 3.2vw, 38px); font-weight: 900; line-height: 1.2; margin: 0 0 10px; color: #141414; }
+.pf-quiz-promo p { font-size: 16px; line-height: 1.7; color: #4b4b4b; margin: 0; max-width: 56ch; }
+.pf-quiz-promo-cta { display: grid; gap: 8px; justify-items: center; }
+.pf-quiz-promo-button { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 999px; background: #f26a0f; color: #141414 !important; text-decoration: none !important; padding: 10px 26px; font-weight: 900; font-size: 17px; transition: background .15s, transform .15s; }
+.pf-quiz-promo-button:hover, .pf-quiz-promo-button:focus-visible { background: #ff8a3d; transform: translateY(-2px); }
+.pf-quiz-promo-button:focus-visible { outline: 3px solid #b8460a; outline-offset: 3px; }
+.pf-quiz-promo small { color: #6b625b; font-size: 13px; }
+.pf-quiz-card { margin: 2.5rem 0 0; padding: 1.4rem; border-radius: 1.5rem; background: #fff4ea; border: 1px solid #f3d6bd; direction: rtl; }
+.pf-quiz-card h2 { margin: 0 0 .4rem; font-size: 1.4rem; font-weight: 900; }
+.pf-quiz-card p { margin: 0 0 1rem; color: #4b4b4b; }
+@media (max-width: 650px) { .pf-quiz-promo-cta { width: 100%; } .pf-quiz-promo-button { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .pf-quiz-promo-button { transition: none; } }
