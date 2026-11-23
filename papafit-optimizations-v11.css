@@ -57,3 +57,7 @@ article.bg-surface[class*="rounded-[1.75rem]"]:hover{box-shadow:0 0 0 1.5px #e9a
 .pf-quiz-card p { margin: 0 0 1rem; color: #4b4b4b; }
 @media (max-width: 650px) { .pf-quiz-promo-cta { width: 100%; } .pf-quiz-promo-button { width: 100%; } }
 @media (prefers-reduced-motion: reduce) { .pf-quiz-promo-button { transition: none; } }
+
+/* keep the 7-item desktop menu on one line */
+header nav a{white-space:nowrap}
+@media (min-width:1024px) and (max-width:1219px){header nav[aria-label] ul{gap:0}header nav[aria-label] ul a{padding-inline:.45rem!important;font-size:.88rem!important}header a[href*="wa.me"]{white-space:nowrap}}

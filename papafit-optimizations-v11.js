@@ -171,7 +171,7 @@
  }
 
  const hydrated=el=>!!el&&Object.keys(el).some(k=>k.startsWith('__reactFiber'));
- const QUIZ_PROMO='<div class="pf-quiz-promo-inner"><div><span class="pf-quiz-promo-eyebrow">PAPAFIT · שאלון אישי חינמי</span><h2>למה אתה לא מצליח לרדת במשקל?</h2><p>15 שאלות קצרות, 3 דקות, ובסוף הסיבות העיקריות שעוצרות דווקא אותך, עם הסבר ומה לעשות כבר השבוע. בלי הרשמה ובלי מייל.</p></div><div class="pf-quiz-promo-cta"><a href="/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_promo">לגלות מה עוצר אותי</a><small>התוצאות מופיעות מיד על המסך</small></div></div>';
+ const QUIZ_PROMO='<div class="pf-quiz-promo-inner"><div><span class="pf-quiz-promo-eyebrow">PAPAFIT · שאלון אישי חינמי</span><h2>למה אתה לא מצליח לרדת במשקל?</h2><p>15 שאלות קצרות, 3 דקות, ובסוף הסיבות העיקריות שעוצרות דווקא אותך, עם הסבר ומה לעשות כבר השבוע. בלי הרשמה ובלי מייל.</p></div><div class="pf-quiz-promo-cta"><a href="/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_promo">לגלות מה עוצר אותי</a><small>התוצאות מופיעות מיד על המסך · או <a href="/calorie-calculator">מחשבון קלוריות אישי</a></small></div></div>';
  function addQuizLink(){
   if(lang()==='ru')return;
   if(isHome()){
@@ -185,7 +185,7 @@
     const h1=document.querySelector('main h1');
     if(!h1||document.querySelector('[data-pf-quiz-link]'))return;
     if(!hydrated(h1)){if(!addQuizLink.t)addQuizLink.t=setTimeout(()=>{addQuizLink.t=0;addQuizLink()},400);return;}
-    const note=document.createElement('p');note.dataset.pfQuizLink='1';const a=document.createElement('a');a.href='/weight-loss-quiz';a.textContent='שאלון של 3 דקות: למה אתה לא מצליח לרדת במשקל?';note.append(a);
+    const note=document.createElement('p');note.dataset.pfQuizLink='1';const a=document.createElement('a');a.href='/weight-loss-quiz';a.textContent='שאלון של 3 דקות: למה אתה לא מצליח לרדת במשקל?';const c=document.createElement('a');c.href='/calorie-calculator';c.textContent='מחשבון קלוריות אישי';note.append(a,' · ',c);
     (document.querySelector('[data-pf-guide-link]')||h1).insertAdjacentElement('afterend',note);
   }else if(/^\/articles\/[^/]+/.test(location.pathname)){
     const prose=document.querySelector('main .prose-pf');
@@ -195,6 +195,22 @@
     card.innerHTML='<h2>רוצה לדעת מה עוצר דווקא אותך?</h2><p>שאלון קצר של 3 דקות שמראה את הסיבות העיקריות שלך ומה לעשות איתן כבר השבוע.</p><a href="/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_article">למילוי השאלון</a>';
     const faq=[...prose.querySelectorAll('h2')].find(h=>/שאלות נפוצות/.test(h.textContent));
     faq?faq.insertAdjacentElement('beforebegin',card):prose.insertAdjacentElement('afterend',card);
+  }
+ }
+
+ function addNavTab(){
+  if(lang()==='ru')return;
+  const isReact=!!document.querySelector('script[src*="/_next/"]');
+  for(const ul of document.querySelectorAll('header nav ul, #mobile-menu ul')){
+    if(ul.querySelector('[data-pf-nav-calc]'))continue;
+    const ref=[...ul.querySelectorAll('a')].find(a=>/\/articles$/.test(a.getAttribute('href')||''));
+    if(!ref)continue;
+    if(isReact&&!hydrated(ul)){if(!addNavTab.t)addNavTab.t=setTimeout(()=>{addNavTab.t=0;addNavTab()},400);continue;}
+    const li=document.createElement('li');li.dataset.pfNavCalc='1';
+    const a=ref.cloneNode(true);a.href='/calorie-calculator';a.removeAttribute('aria-current');
+    const tn=[...a.childNodes].find(n=>n.nodeType===3&&n.textContent.trim());if(tn)tn.textContent='מחשבון קלוריות';else a.prepend('מחשבון קלוריות');
+    if(/^\/calorie-calculator/.test(location.pathname))a.setAttribute('aria-current','page');
+    li.append(a);ref.closest('li').insertAdjacentElement('afterend',li);
   }
  }
  window.papafitTrack=(kind,detail)=>emit(kind,{...(detail||{}),page_path:location.pathname});
@@ -275,7 +291,7 @@
  function apply(){
   const wa=[...document.querySelectorAll('a[href]')].filter(a=>/^(https?:\/\/)?(?:wa\.me|api\.whatsapp\.com)\//.test(a.getAttribute('href')||''));
   for(const a of wa){a.target='_blank';a.rel='noopener noreferrer';if(!a.dataset.cta)a.dataset.cta=position(a)}
-  addMicro();addCredibility();addCertBadge();resultsSummary();monthlyPrices();aboutTerms();repairArticleImages();fillImageAlts();addGuideLink();addQuizLink();articleDate();shareGuide();banner();
+  addMicro();addCredibility();addCertBadge();resultsSummary();monthlyPrices();aboutTerms();repairArticleImages();fillImageAlts();addGuideLink();addQuizLink();addNavTab();articleDate();shareGuide();banner();
  }
  function schedule(){if(nextPatch)return;nextPatch=true;requestAnimationFrame(()=>{nextPatch=false;apply()})}
  const observer=new MutationObserver(records=>{if(records.some(r=>r.addedNodes.length||r.removedNodes.length))schedule()});

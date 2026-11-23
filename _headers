@@ -66,3 +66,11 @@
   Cache-Control: no-cache
 /papafit-quiz.css
   Cache-Control: no-cache
+/calorie-calculator
+  Cache-Control: no-cache
+/calorie-calculator.html
+  Cache-Control: no-cache
+/papafit-calc.js
+  Cache-Control: no-cache
+/papafit-calc.css
+  Cache-Control: no-cache

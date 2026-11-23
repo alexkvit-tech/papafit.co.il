@@ -411,6 +411,7 @@
         <h3>${esc(g('ומה עוד {אתה יכול|את יכולה} לעשות עכשיו'))}</h3>
         <div class="result-tools-grid">
           <a class="result-tool" data-cta="quiz_share_self" href="https://api.whatsapp.com/send?text=${encodeURIComponent(msgSelf)}" target="_blank" rel="noopener noreferrer"><strong>לשמור את התוצאות</strong><span>שליחה לעצמך בוואטסאפ</span></a>
+          <a class="result-tool" href="/calorie-calculator"><strong>לחשב את התקציב הקלורי שלי</strong><span>כמה לאכול ביום כדי לרדת, וכמה חלבון</span></a>
           <a class="result-tool" href="/weight-loss-guide"><strong>לקרוא את המדריך המלא</strong><span>9 עקרונות לירידה במשקל עם עבודה וילדים</span></a>
           <button type="button" class="result-tool" data-act="restart"><strong>למלא את השאלון מחדש</strong><span>או לתת למישהו אחר לנסות</span></button>
         </div>
