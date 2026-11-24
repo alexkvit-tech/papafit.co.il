@@ -54,3 +54,6 @@ Round 4 - strength builder rebuilt on the full research summary (Tal Ben Moshe +
 - Beginners: 2 sets per exercise, note about 1 set in the first 2 weeks and 2-3 days/week
 - Diminishing returns (4 / 11 / 22 sets), full "before adding sets" checklist,
   add 2-4 weekly sets when stuck or reduce volume when fatigued, sources with links
+
+Round 5:
+- "כלים חינמיים" block (quiz, calorie calculator, strength program) above the article list on /articles and in the home page articles section; Russian: quiz + calculator

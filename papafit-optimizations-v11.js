@@ -191,12 +191,6 @@
     if(!hydrated(problem))return later();
     const promo=document.createElement('section');promo.className='pf-quiz-promo';promo.dataset.pfQuizPromo='1';promo.dir=ru?'ltr':'rtl';promo.setAttribute('aria-label',T.label);
     promo.innerHTML=T.promo;problem.insertAdjacentElement('afterend',promo);
-  }else if(T.list.test(location.pathname)){
-    const h1=document.querySelector('main h1');
-    if(!h1||document.querySelector('[data-pf-quiz-link]'))return;
-    if(!hydrated(h1))return later();
-    const note=document.createElement('p');note.dataset.pfQuizLink='1';const a=document.createElement('a');a.href=T.quiz;a.textContent=T.link;const c=document.createElement('a');c.href=T.calc;c.textContent=T.calcLink;note.append(a,' · ',c);if(T.spLink){const sp=document.createElement('a');sp.href='/strength-program';sp.textContent=T.spLink;note.append(' · ',sp);}
-    (document.querySelector('[data-pf-guide-link]')||h1).insertAdjacentElement('afterend',note);
   }else if(T.art.test(location.pathname)){
     const prose=document.querySelector('main .prose-pf');
     if(!prose||document.querySelector('[data-pf-quiz-card]'))return;
@@ -221,6 +215,34 @@
     if(location.pathname.replace(/\.html$|\/$/,'')===calc)a.setAttribute('aria-current','page');
     li.append(a);ref.closest('li').insertAdjacentElement('afterend',li);
   }
+ }
+ const TOOLS={
+  he:{eyebrow:'כלים חינמיים',title:'לא רק לקרוא: לבדוק מה מתאים לך',sub:'שלושה כלים קצרים, בלי הרשמה, עם תוצאה אישית מיד על המסך.',
+   items:[
+    ['/weight-loss-quiz','שאלון · 3 דקות','למה אתה לא מצליח לרדת במשקל?','15 שאלות קצרות, ובסוף הסיבות העיקריות שלך ומה לעשות כבר השבוע.','למילוי השאלון','M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3m.1 4h.01M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z'],
+    ['/calorie-calculator','מחשבון · דקה','כמה קלוריות לאכול כדי לרדת?','שמירה, יעד יומי לירידה, חלבון ותקציב שבועי עם מקום לארוחת שישי.','לחישוב אישי','M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm3 4h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01'],
+    ['/strength-program','תוכנית · 2 דקות','תוכנית אימוני כוח לחדר כושר או לבית','סטים, חזרות ו־RIR לפי הניסיון, הימים והזמן שיש לך. מבוסס מחקר.','לבניית התוכנית','M3 10v4m18-4v4M6 7v10m12-10v10M9 12h6M6 7h3v10H6zm9 0h3v10h-3z']]},
+  ru:{eyebrow:'Бесплатные инструменты',title:'Не только читать: проверить, что подходит вам',sub:'Короткие инструменты без регистрации, с персональным результатом сразу на экране.',
+   items:[
+    ['/ru/weight-loss-quiz','Тест · 3 минуты','Почему у вас не получается похудеть?','15 коротких вопросов, и в конце ваши главные причины и что делать уже на этой неделе.','Пройти тест','M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3m.1 4h.01M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z'],
+    ['/ru/calorie-calculator','Калькулятор · 1 минута','Сколько калорий есть, чтобы похудеть?','Поддержание, дневная цель, белок и недельный бюджет с местом для пятничного ужина.','Рассчитать','M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm3 4h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01']]}
+ };
+ function toolsBlock(ru,headingTag){
+  const T=TOOLS[ru?'ru':'he'];const arrow=ru?'→':'←';
+  const el=document.createElement('div');el.className='pf-tools';el.dataset.pfTools='1';el.dir=ru?'ltr':'rtl';
+  const cards=T.items.map(([href,tag,title,desc,cta,icon])=>`<li><a class="pf-tool-card" href="${href}" data-cta="tools_${href.split('/').pop()}"><span class="pf-tool-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="${icon}"/></svg></span><span class="pf-tool-tag">${tag}</span><strong>${title}</strong><span class="pf-tool-desc">${desc}</span><span class="pf-tool-cta">${cta} <span aria-hidden="true">${arrow}</span></span></a></li>`).join('');
+  el.innerHTML=`<div class="pf-tools-head"><span class="pf-tools-eyebrow">${T.eyebrow}</span><${headingTag}>${T.title}</${headingTag}><p>${T.sub}</p></div><ul class="pf-tools-grid">${cards}</ul>`;
+  return el;
+ }
+ function addTools(){
+  const ru=lang()==='ru';
+  if(document.querySelector('[data-pf-tools]'))return;
+  let list=null,tag='h2';
+  if(isHome()){list=document.getElementById('articles-title')?.closest('section')?.querySelector('ul[data-stagger]');tag='h3';}
+  else if((ru?/^\/ru\/articles(?:\.html|\/)?$/:/^\/articles(?:\.html|\/)?$/).test(location.pathname)){list=document.querySelector('main ul[data-stagger]');}
+  if(!list)return;
+  if(!hydrated(list)){if(!addTools.t)addTools.t=setTimeout(()=>{addTools.t=0;addTools()},400);return;}
+  list.insertAdjacentElement('beforebegin',toolsBlock(ru,tag));
  }
  window.papafitTrack=(kind,detail)=>emit(kind,{...(detail||{}),page_path:location.pathname});
  function articleDate(){
@@ -300,7 +322,7 @@
  function apply(){
   const wa=[...document.querySelectorAll('a[href]')].filter(a=>/^(https?:\/\/)?(?:wa\.me|api\.whatsapp\.com)\//.test(a.getAttribute('href')||''));
   for(const a of wa){a.target='_blank';a.rel='noopener noreferrer';if(!a.dataset.cta)a.dataset.cta=position(a)}
-  addMicro();addCredibility();addCertBadge();resultsSummary();monthlyPrices();aboutTerms();repairArticleImages();fillImageAlts();addGuideLink();addQuizLink();addNavTab();articleDate();shareGuide();banner();
+  addMicro();addCredibility();addCertBadge();resultsSummary();monthlyPrices();aboutTerms();repairArticleImages();fillImageAlts();addGuideLink();addQuizLink();addTools();addNavTab();articleDate();shareGuide();banner();
  }
  function schedule(){if(nextPatch)return;nextPatch=true;requestAnimationFrame(()=>{nextPatch=false;apply()})}
  const observer=new MutationObserver(records=>{if(records.some(r=>r.addedNodes.length||r.removedNodes.length))schedule()});
