@@ -34,3 +34,13 @@ Round 2:
 - HE/RU switch buttons link between the two quiz pages
 - Design: the black boxes (quiz preview, quiz/calculator CTA, calculator main number)
   replaced with light warm cards (soft orange gradient, thin border, soft shadow)
+
+Round 3 - strength program builder:
+- /strength-program: 7 questions (goal, gym/home/bodyweight, experience, days 2-5,
+  minutes per workout, sensitive knees/back/shoulders) -> full weekly program with
+  exercises, sets, reps, RIR, rest, weekly sets per muscle vs. recommended range,
+  max 8 hard sets per muscle per workout, "am I progressing? yes/no" rule for adding sets
+- Send to myself on WhatsApp, print / save as PDF, or consult Alex (prefilled message)
+- Linked from the home quiz banner, /articles, quiz + calculator results and guide principle 8
+- Tracking: papafit_strength_start, papafit_strength_complete, papafit_strength_print;
+  WhatsApp clicks: strength_result / strength_share_self

@@ -1,0 +1,49 @@
+/* PAPAFIT strength-program page, builds on papafit-guide.css + papafit-quiz.css */
+.sp-chips { list-style: none; padding: 0; margin: .9rem 0 0; display: flex; flex-wrap: wrap; gap: .45rem; }
+.sp-chips li { background: white; border: 1px solid var(--guide-line); border-radius: 999px; padding: .25rem .75rem; font-size: .88rem; font-weight: 700; }
+.sp-chips li:first-child { background: var(--guide-tint); border-color: #f3c29c; color: var(--guide-accent); }
+.sp-workouts { display: grid; gap: .9rem; margin-top: .9rem; }
+.sp-workout { background: white; border: 1px solid var(--guide-line); border-radius: 22px; padding: clamp(1rem, 3.5vw, 1.5rem); box-shadow: 0 18px 40px -32px rgb(20 20 20 / 35%); break-inside: avoid; }
+.sp-workout h4 { font-size: 1.15rem; font-weight: 800; margin: 0 0 .7rem; padding-bottom: .6rem; border-bottom: 2px solid var(--guide-tint); }
+.sp-ex { list-style: none; counter-reset: ex; padding: 0; margin: 0; display: grid; gap: .55rem; }
+.sp-ex li { counter-increment: ex; position: relative; padding-inline-start: 2.3rem; padding-block: .35rem; }
+.sp-ex li::before { content: counter(ex); position: absolute; inset-inline-start: 0; top: .3rem; width: 1.65rem; height: 1.65rem; border-radius: 50%; background: var(--guide-tint); color: var(--guide-accent); font-weight: 900; font-size: .85rem; display: grid; place-items: center; }
+.sp-ex li + li { border-top: 1px dashed var(--guide-line); padding-top: .65rem; }
+.sp-ex li + li::before { top: .6rem; }
+.sp-ex-name { display: block; font-weight: 800; }
+.sp-swap { font-size: .72rem; font-weight: 800; color: var(--guide-accent); background: var(--guide-tint); border-radius: 99px; padding: .05rem .45rem; vertical-align: middle; }
+.sp-ex-meta { display: flex; flex-wrap: wrap; gap: .25rem .9rem; margin-top: .2rem; font-size: .88rem; color: var(--guide-muted); }
+.sp-ex-meta strong { color: var(--guide-ink); }
+.sp-rir { width: 100%; max-width: 26rem; border-collapse: separate; border-spacing: 0; margin: .9rem 0; border: 1px solid var(--guide-line); border-radius: 14px; overflow: hidden; font-size: .95rem; }
+.sp-rir th { background: var(--guide-tint); color: var(--guide-accent); text-align: start; padding: .5rem .8rem; }
+.sp-rir td { padding: .5rem .8rem; border-top: 1px solid var(--guide-line); }
+.sp-rir td:first-child { font-weight: 900; width: 4rem; text-align: center; }
+.sp-volume li { grid-template-columns: 8rem minmax(0, 1fr) 7.2rem; }
+.sp-track { position: relative; }
+.sp-range { position: absolute; top: 0; bottom: 0; background: rgb(242 106 15 / 16%); }
+.sp-track .bar-fill { position: relative; }
+.sp-flow { display: grid; gap: .6rem; margin-top: .8rem; }
+.sp-flow > div { display: flex; gap: .7rem; align-items: flex-start; border-radius: 14px; padding: .75rem .9rem; border: 1px solid var(--guide-line); background: white; }
+.sp-flow strong { flex: 0 0 auto; min-width: 2.6rem; text-align: center; border-radius: 99px; padding: .1rem .6rem; font-weight: 900; }
+.sp-yes strong { background: #e7f6ec; color: #1d6b3a; }
+.sp-no strong { background: var(--guide-tint); color: var(--guide-accent); }
+.sp-progress p + p { margin-top: .5rem; }
+.sp-progress a, .sp-results .result-timeline a { color: var(--guide-accent); text-decoration: underline; text-underline-offset: .2em; font-weight: 700; }
+@media (min-width: 760px) {
+  .sp-workouts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sp-flow { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .sp-volume li { grid-template-columns: 1fr auto; grid-template-areas: "l v" "b b"; row-gap: .3rem; }
+  .sp-volume .bar-label { grid-area: l; }
+  .sp-volume .bar-val { grid-area: v; }
+  .sp-volume .bar-track { grid-area: b; }
+}
+@media print {
+  header, footer, .skip, #quiz-intro, .guide-faq, .pf-cta-card, .result-tools, a.fixed, .pf-v7-consent { display: none !important; }
+  body { background: white; font-size: 12px; }
+  #quiz-app { padding: 0; }
+  .sp-workout, .result-profile, .result-first, .result-timeline { box-shadow: none; break-inside: avoid; }
+  .sp-workouts { grid-template-columns: 1fr 1fr; }
+  .bar-fill { animation: none; }
+}

@@ -172,9 +172,9 @@
 
  const hydrated=el=>!!el&&Object.keys(el).some(k=>k.startsWith('__reactFiber'));
  const QUIZ_TXT={
-  he:{promo:'<div class="pf-quiz-promo-inner"><div><span class="pf-quiz-promo-eyebrow">PAPAFIT · שאלון אישי חינמי</span><h2>למה אתה לא מצליח לרדת במשקל?</h2><p>15 שאלות קצרות, 3 דקות, ובסוף הסיבות העיקריות שעוצרות דווקא אותך, עם הסבר ומה לעשות כבר השבוע. בלי הרשמה ובלי מייל.</p></div><div class="pf-quiz-promo-cta"><a href="/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_promo">לגלות מה עוצר אותי</a><small>התוצאות מופיעות מיד על המסך · או <a href="/calorie-calculator">מחשבון קלוריות אישי</a></small></div></div>',
+  he:{promo:'<div class="pf-quiz-promo-inner"><div><span class="pf-quiz-promo-eyebrow">PAPAFIT · שאלון אישי חינמי</span><h2>למה אתה לא מצליח לרדת במשקל?</h2><p>15 שאלות קצרות, 3 דקות, ובסוף הסיבות העיקריות שעוצרות דווקא אותך, עם הסבר ומה לעשות כבר השבוע. בלי הרשמה ובלי מייל.</p></div><div class="pf-quiz-promo-cta"><a href="/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_promo">לגלות מה עוצר אותי</a><small>התוצאות מופיעות מיד על המסך · או <a href="/calorie-calculator">מחשבון קלוריות</a> · <a href="/strength-program">תוכנית אימוני כוח</a></small></div></div>',
    label:'שאלון: למה אתה לא מצליח לרדת במשקל',quiz:'/weight-loss-quiz',calc:'/calorie-calculator',list:/^\/articles(?:\.html|\/)?$/,art:/^\/articles\/[^/]+/,faq:/שאלות נפוצות/,
-   link:'שאלון של 3 דקות: למה אתה לא מצליח לרדת במשקל?',calcLink:'מחשבון קלוריות אישי',
+   link:'שאלון של 3 דקות: למה אתה לא מצליח לרדת במשקל?',calcLink:'מחשבון קלוריות אישי',spLink:'תוכנית אימוני כוח',
    card:'<h2>רוצה לדעת מה עוצר דווקא אותך?</h2><p>שאלון קצר של 3 דקות שמראה את הסיבות העיקריות שלך ומה לעשות איתן כבר השבוע.</p><a href="/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_article">למילוי השאלון</a>'},
   ru:{promo:'<div class="pf-quiz-promo-inner"><div><span class="pf-quiz-promo-eyebrow">PAPAFIT · Бесплатный персональный тест</span><h2>Почему у вас не получается похудеть?</h2><p>15 коротких вопросов, 3 минуты, и в конце главные причины, которые останавливают именно вас, с объяснением и тем, что делать уже на этой неделе. Без регистрации и e-mail.</p></div><div class="pf-quiz-promo-cta"><a href="/ru/weight-loss-quiz" class="pf-quiz-promo-button" data-cta="quiz_promo">Узнать, что мне мешает</a><small>Результат сразу на экране · или <a href="/ru/calorie-calculator">калькулятор калорий</a></small></div></div>',
    label:'Тест: почему у вас не получается похудеть',quiz:'/ru/weight-loss-quiz',calc:'/ru/calorie-calculator',list:/^\/ru\/articles(?:\.html|\/)?$/,art:/^\/ru\/articles\/[^/]+/,faq:/Частые вопросы/,
@@ -195,7 +195,7 @@
     const h1=document.querySelector('main h1');
     if(!h1||document.querySelector('[data-pf-quiz-link]'))return;
     if(!hydrated(h1))return later();
-    const note=document.createElement('p');note.dataset.pfQuizLink='1';const a=document.createElement('a');a.href=T.quiz;a.textContent=T.link;const c=document.createElement('a');c.href=T.calc;c.textContent=T.calcLink;note.append(a,' · ',c);
+    const note=document.createElement('p');note.dataset.pfQuizLink='1';const a=document.createElement('a');a.href=T.quiz;a.textContent=T.link;const c=document.createElement('a');c.href=T.calc;c.textContent=T.calcLink;note.append(a,' · ',c);if(T.spLink){const sp=document.createElement('a');sp.href='/strength-program';sp.textContent=T.spLink;note.append(' · ',sp);}
     (document.querySelector('[data-pf-guide-link]')||h1).insertAdjacentElement('afterend',note);
   }else if(T.art.test(location.pathname)){
     const prose=document.querySelector('main .prose-pf');
