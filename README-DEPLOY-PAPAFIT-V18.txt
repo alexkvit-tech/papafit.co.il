@@ -44,3 +44,13 @@ Round 3 - strength program builder:
 - Linked from the home quiz banner, /articles, quiz + calculator results and guide principle 8
 - Tracking: papafit_strength_start, papafit_strength_complete, papafit_strength_print;
   WhatsApp clicks: strength_result / strength_share_self
+
+Round 4 - strength builder rebuilt on the full research summary (Tal Ben Moshe + 2024-2025 meta-analyses):
+- Weekly targets: beginner 4-8 sets, intermediate 8-12 (6-10 for fat loss / health),
+  advanced up to 10-20 for muscle; weekly max 20
+- Fractional counting (secondary muscle = half a set), 7 muscle groups incl. biceps/triceps
+- Up to 10 sets per muscle in one workout; automatic balancing toward the target range
+- New question: focus muscle group (extra volume only for it, int/adv)
+- Beginners: 2 sets per exercise, note about 1 set in the first 2 weeks and 2-3 days/week
+- Diminishing returns (4 / 11 / 22 sets), full "before adding sets" checklist,
+  add 2-4 weekly sets when stuck or reduce volume when fatigued, sources with links
