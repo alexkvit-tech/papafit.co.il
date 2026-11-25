@@ -57,3 +57,8 @@ Round 4 - strength builder rebuilt on the full research summary (Tal Ben Moshe +
 
 Round 5:
 - "כלים חינמיים" block (quiz, calorie calculator, strength program) above the article list on /articles and in the home page articles section; Russian: quiz + calculator
+
+Round 6 - link in bio:
+- /links: Instagram link-in-bio page (quiz featured, WhatsApp, calculator, strength program, guide). noindex, not in sitemap.
+- Use in Instagram bio: https://papafit.co.il/links?utm_source=instagram&utm_medium=bio
+- Tracking: WhatsApp clicks as papafit_generate_lead (button_location links_whatsapp); other buttons as papafit_links_click
